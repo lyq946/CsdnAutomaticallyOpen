@@ -1,0 +1,34 @@
+{
+    "name": "CSDN文章自动展开全文",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "自动展开CSDN文章全文的插件，不用再登录，不用手动点击！",
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "CSDN文章自动展开全文",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*.csdn.net/*",
+				"https://*.csdn.net/*"
+            ],
+            "js": [
+				"jquery-1.10.2.min.js",
+                "contentscript.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": false
+        }
+    ],
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "MacCtrl+Shift+F"
+            },
+            "description": "Opens popup.html"
+        }
+    }
+}
